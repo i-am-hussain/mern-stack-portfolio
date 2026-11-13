@@ -20,7 +20,7 @@ export const profile = {
   firstName: "Sahnawas",
   role: "MERN Stack Developer",
   // Drop your portrait at public/profile.jpg, or change this path.
-  photo: "/profile.jpg",
+  // photo: "/profile.jpeg",
   photoAlt: "Portrait of Sahnawas Hussain",
   location: "Bhopal, India",
   timezone: "IST · UTC+5:30",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     ],
     live: "https://drivea-coral.vercel.app/",
     image: "/projects/DRIVEA.png",
-    // imageAlt: "Drivea file browser with folders and storage quota",
+    imageAlt: "Drivea file browser with folders and storage quota",
     featured: true,
     accent: "from-emerald-400/20 via-cyan-400/10 to-transparent",
     glow: "rgba(52,211,153,0.22)",
@@ -192,7 +192,7 @@ export const projects: Project[] = [
     highlights: [],
     live: "https://hospital-management-system-gules-ten.vercel.app/",
     image: "/projects/Medibook.png",
-    // imageAlt: "MediBook hospital management dashboard",
+    imageAlt: "MediBook hospital management dashboard",
     accent: "from-sky-400/20 via-indigo-400/10 to-transparent",
     glow: "rgba(56,189,248,0.2)",
     mock: {
@@ -211,7 +211,7 @@ export const projects: Project[] = [
     highlights: [],
     live: "https://job-portal-app-blond.vercel.app/",
     image: "/projects/job-portal-app.png",
-    // imageAlt: "JobNest job board listing page",
+    imageAlt: "JobNest job board listing page",
     accent: "from-violet-400/20 via-fuchsia-400/10 to-transparent",
     glow: "rgba(167,139,250,0.2)",
     mock: {

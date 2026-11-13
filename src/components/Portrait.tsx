@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { MapPin } from "lucide-react";
+
 import { profile } from "@/data/portfolio";
 
 const initials = profile.name
@@ -28,11 +29,7 @@ export default function Portrait() {
             <span className="text-gradient relative font-display text-[5.5rem] font-semibold leading-none">
               {initials}
             </span>
-            {process.env.NODE_ENV === "development" ? (
-              <p className="absolute bottom-24 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-slate-500">
-                Add public/profile.jpg
-              </p>
-            ) : null}
+            {false ? null : null}
           </div>
 
           {failed ? null : (
