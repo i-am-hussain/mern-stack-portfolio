@@ -58,11 +58,18 @@ HTML in the notification email.
 All copy, links and projects live in [`src/data/portfolio.ts`](src/data/portfolio.ts):
 
 - `profile` — name, role, location, email, phone, availability, socials, stats
+- `profile.photo` — portrait shown in the About section (see below)
 - `about` — intro, paragraphs, current focus
 - `skillGroups` — four categories of tools
 - `projects` — title, description, stack, highlights, demo/GitHub links
 - `experience` — roles, impact bullets, period
 - Set `profile.resumeUrl` to a PDF in `public/` (e.g. `/resume.pdf`) to show a résumé button
+
+**Your photo:** drop a portrait (roughly 4:5, e.g. 800×1000px) at
+`public/profile.jpg`. It appears in the framed card in the About section; if you
+use another filename, update `profile.photo` and `profile.photoAlt`. Until the
+file exists the card shows your initials as a monogram, and `npm run dev` shows
+a small reminder.
 
 Also update the placeholder links (`github.com`, `example.com`) and replace the
 placeholder contact details before deploying.

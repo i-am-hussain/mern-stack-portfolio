@@ -12,12 +12,16 @@ export type Social = {
   icon: "github" | "linkedin" | "twitter" | "mail";
 };
 
-const EMAIL = "aarav.sharma.dev@gmail.com";
+// TODO: replace with your real email address.
+const EMAIL = "sahnawas.hussain@example.com";
 
 export const profile = {
-  name: "Aarav Sharma",
-  firstName: "Aarav",
+  name: "Sahnawas Hussain",
+  firstName: "Sahnawas",
   role: "MERN Stack Developer",
+  // Drop your portrait at public/profile.jpg, or change this path.
+  photo: "/profile.jpg",
+  photoAlt: "Portrait of Sahnawas Hussain",
   location: "Bengaluru, India",
   timezone: "IST · UTC+5:30",
   email: EMAIL,
