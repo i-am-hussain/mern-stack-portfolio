@@ -1,4 +1,4 @@
-import { Code2, Database, Server, Wrench } from "lucide-react";
+import { Code2, Database, Server } from "lucide-react";
 import { skillGroups, type SkillGroup } from "@/data/portfolio";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -7,7 +7,6 @@ const icons: Record<SkillGroup["icon"], typeof Code2> = {
   code: Code2,
   server: Server,
   database: Database,
-  toolbox: Wrench,
 };
 
 export default function Skills() {
@@ -19,18 +18,18 @@ export default function Skills() {
         <Reveal>
           <SectionHeading
             index="02"
-            eyebrow="Toolkit"
+            eyebrow="MERN Stack"
             title={
               <>
-                The stack behind the{" "}
-                <span className="text-slate-500">shipping.</span>
+                One stack,{" "}
+                <span className="text-slate-500">every layer.</span>
               </>
             }
-            description="Hands-on delivery across the stack, distilled into the tools I reach for when a product needs to go from idea to production."
+            description="React on the client, Node and Express on the server, MongoDB underneath — the four MERN technologies I use from first commit to production."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
           {skillGroups.map((group, index) => {
             const Icon = icons[group.icon];
             return (
@@ -77,13 +76,13 @@ export default function Skills() {
           <div className="mt-6 flex flex-col items-start justify-between gap-4 rounded-2xl border border-white/[0.07] bg-gradient-to-r from-mint/[0.06] via-transparent to-transparent px-6 py-5 sm:flex-row sm:items-center">
             <p className="text-[0.85rem] leading-relaxed text-slate-400">
               <span className="font-medium text-slate-200">
-                Beyond the stack:
+                Depth over breadth:
               </span>{" "}
-              system design, API security, performance profiling and mentoring —
-              the parts that keep a codebase healthy after launch.
+              REST API design, auth flows, aggregation pipelines and query
+              tuning — the parts that keep a MERN app healthy after launch.
             </p>
             <span className="shrink-0 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-mint/80">
-              Always learning
+              MERN end to end
             </span>
           </div>
         </Reveal>

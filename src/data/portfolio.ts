@@ -13,7 +13,7 @@ export type Social = {
 };
 
 // TODO: replace with your real email address.
-const EMAIL = "sahnawas.hussain@example.com";
+const EMAIL = "sahnawashussain98@gmail.com";
 
 export const profile = {
   name: "Sahnawas Hussain",
@@ -22,25 +22,25 @@ export const profile = {
   // Drop your portrait at public/profile.jpg, or change this path.
   photo: "/profile.jpg",
   photoAlt: "Portrait of Sahnawas Hussain",
-  location: "Bengaluru, India",
+  location: "Bhopal, India",
   timezone: "IST · UTC+5:30",
   email: EMAIL,
-  phone: "+91 98765 43210",
+  phone: "+91 9547730883",
   availability: "Available for freelance & full-time roles",
   headline: "I build fast, scalable products across the MERN stack.",
   subheadline:
-    "Full-stack developer with 3+ years of experience turning product ideas into polished web applications — from pixel-accurate React interfaces to production-ready Node APIs and MongoDB data models.",
+    "MERN stack developer turning product ideas into polished web applications — crafting React interfaces, wiring Express and Node REST APIs, and shaping MongoDB data models that hold up.",
   resumeUrl: "",
   socials: [
-    { label: "GitHub", href: "https://github.com", icon: "github" },
-    { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+    { label: "GitHub", href: "https://github.com/sahnawashussain786", icon: "github" },
+    { label: "LinkedIn", href: "www.linkedin.com/in/i-am-hussain", icon: "linkedin" },
     { label: "X / Twitter", href: "https://x.com", icon: "twitter" },
     { label: "Email", href: `mailto:${EMAIL}`, icon: "mail" },
   ] satisfies Social[],
   stats: [
-    { value: "3+", label: "Years shipping products" },
-    { value: "24", label: "Projects delivered" },
-    { value: "99%", label: "Client satisfaction" },
+    { value: "6", label: "Months on a product team" },
+    { value: "3", label: "Full-stack apps live" },
+    { value: "MERN", label: "Stack, end to end" },
   ],
 };
 
@@ -63,69 +63,54 @@ export const about = {
 export type SkillGroup = {
   title: string;
   blurb: string;
-  icon: "code" | "server" | "database" | "toolbox";
+  icon: "code" | "server" | "database";
   skills: string[];
 };
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Frontend",
+    title: "React",
     blurb: "Interfaces that feel instant and look intentional.",
     icon: "code",
     skills: [
-      "React",
+      "React 19",
       "Next.js",
       "TypeScript",
-      "Tailwind CSS",
       "Redux Toolkit",
-      "React Three Fiber",
-      "Framer Motion",
-      "Accessibility",
+      "React Router",
+      "Hooks & Context",
+      "Tailwind CSS",
+      "Component architecture",
     ],
   },
   {
-    title: "Backend",
+    title: "Node.js & Express",
     blurb: "APIs designed for clarity, security and load.",
     icon: "server",
     skills: [
       "Node.js",
       "Express.js",
       "REST APIs",
-      "GraphQL",
-      "Socket.IO",
-      "JWT & OAuth",
-      "Zod validation",
-      "Webhooks",
+      "Middleware & routing",
+      "JWT authentication",
+      "Input validation",
+      "Rate limiting",
+      "Error handling",
     ],
   },
   {
-    title: "Data",
+    title: "MongoDB",
     blurb: "Schemas and queries that stay fast as data grows.",
     icon: "database",
     skills: [
       "MongoDB",
       "Mongoose",
+      "Schema design",
       "Aggregation pipelines",
-      "Redis",
-      "PostgreSQL",
-      "Prisma",
       "Indexing",
       "Data modelling",
-    ],
-  },
-  {
-    title: "DevOps & Tools",
-    blurb: "Ship confidently, debug quickly, sleep well.",
-    icon: "toolbox",
-    skills: [
-      "Git & GitHub",
-      "Docker",
-      "AWS EC2 / S3",
-      "Vercel",
-      "CI/CD",
-      "Jest & Vitest",
-      "Postman",
-      "Linux",
+      "MongoDB Atlas",
+      "Transactions",
     ],
   },
 ];
@@ -156,115 +141,82 @@ export type Project = {
   year: string;
   stack: string[];
   highlights: string[];
-  github: string;
+  github?: string;
   live: string;
+  /** Screenshot shown in the project card, e.g. "/projects/drivea.png". */
+  image?: string;
+  imageAlt?: string;
   featured?: boolean;
   accent: string;
   glow: string;
   mock: {
     label: string;
-    metric: string;
-    metricLabel: string;
     bars: number[];
   };
 };
 
 export const projects: Project[] = [
   {
-    slug: "nexus-commerce",
-    title: "Nexus Commerce",
-    tagline: "Full-stack commerce platform",
+    slug: "drivea",
+    title: "Drivea",
+    tagline: "Full-stack cloud storage app",
     description:
-      "A production-ready storefront and admin suite handling catalog, cart, checkout and order analytics. Built for a 12k-SKU catalog with sub-100ms product queries.",
-    year: "2025",
-    stack: ["Next.js", "Node.js", "MongoDB", "Redis", "Stripe"],
+      "A full-stack cloud storage application built with the MERN stack and Tailwind CSS v4. Drivea keeps files and nested folders in one private drive, moves them to a trash with restore, shares files or folders through public links, and tracks a per-account storage quota. The responsive SPA ships with a desktop sidebar, a mobile bottom navigation bar, drag-and-drop uploads, grid and list views, light and dark themes, and a small in-house component kit built on Lucide icons.",
+    year: "2026",
+    stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS v4", "Lucide"],
     highlights: [
-      "Cut checkout drop-off by 22% with optimistic cart updates",
-      "MongoDB aggregation pipelines power the sales dashboard",
-      "Role-based admin, webhook-driven order fulfilment",
+      "Nested folders with trash, restore and permanent delete",
+      "Public share links for individual files and whole folders",
+      "Per-account storage quota tracked across every upload",
+      "Drag-and-drop uploads with grid/list views and light or dark themes",
     ],
-    github: "https://github.com",
-    live: "https://example.com",
+    live: "https://drivea-coral.vercel.app/",
+    image: "/projects/DRIVEA.png",
+    // imageAlt: "Drivea file browser with folders and storage quota",
     featured: true,
     accent: "from-emerald-400/20 via-cyan-400/10 to-transparent",
     glow: "rgba(52,211,153,0.22)",
     mock: {
-      label: "nexus.app / dashboard",
-      metric: "$184.2k",
-      metricLabel: "Revenue this month",
+      label: "drivea / my drive",
       bars: [38, 62, 48, 78, 56, 90, 72, 84],
     },
   },
   {
-    slug: "devsync",
-    title: "DevSync",
-    tagline: "Real-time team workspace",
+    slug: "medibook",
+    title: "MediBook",
+    tagline: "Hospital management system",
     description:
-      "Collaborative workspace with live cursors, shared notes and presence. Socket.IO rooms backed by a Redis adapter keep 500+ concurrent users in sync.",
-    year: "2025",
-    stack: ["React", "Express", "Socket.IO", "MongoDB", "Redis"],
-    highlights: [
-      "Optimistic conflict-free note editing with CRDTs",
-      "Redis pub/sub for horizontal socket scaling",
-      "JWT auth with rotating refresh tokens",
-    ],
-    github: "https://github.com",
-    live: "https://example.com",
+      "A full-stack Hospital Management System on the MERN stack with a clean, professional Tailwind CSS interface for running day-to-day hospital operations.",
+    year: "2026",
+    stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    highlights: [],
+    live: "https://hospital-management-system-gules-ten.vercel.app/",
+    image: "/projects/Medibook.png",
+    // imageAlt: "MediBook hospital management dashboard",
     accent: "from-sky-400/20 via-indigo-400/10 to-transparent",
     glow: "rgba(56,189,248,0.2)",
     mock: {
-      label: "devsync.app / room",
-      metric: "512",
-      metricLabel: "Active collaborators",
+      label: "medibook / dashboard",
       bars: [30, 45, 60, 52, 74, 88, 66, 95],
     },
   },
   {
-    slug: "pulse-analytics",
-    title: "Pulse Analytics",
-    tagline: "Product analytics dashboard",
+    slug: "jobnest",
+    title: "JobNest",
+    tagline: "Full-stack job board",
     description:
-      "Self-serve analytics for product teams: funnels, retention cohorts and event streams, all served from pre-aggregated Mongo collections.",
-    year: "2024",
-    stack: ["React", "Node.js", "MongoDB", "Chart.js", "Docker"],
-    highlights: [
-      "$lookup + $facet pipeline renders cohorts in one round trip",
-      "Scheduled rollups keep dashboards under 300ms",
-      "Dockerised deployment with GitHub Actions",
-    ],
-    github: "https://github.com",
-    live: "https://example.com",
+      "A full-stack job board built on the MERN stack with Tailwind CSS, deployed to Vercel as a single project: the React SPA is served statically and the Express API runs as a serverless function under /api.",
+    year: "2026",
+    stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Vercel"],
+    highlights: [],
+    live: "https://job-portal-app-blond.vercel.app/",
+    image: "/projects/job-portal-app.png",
+    // imageAlt: "JobNest job board listing page",
     accent: "from-violet-400/20 via-fuchsia-400/10 to-transparent",
     glow: "rgba(167,139,250,0.2)",
     mock: {
-      label: "pulse.app / funnels",
-      metric: "18.4%",
-      metricLabel: "Trial → paid conversion",
+      label: "jobnest / jobs",
       bars: [55, 40, 66, 48, 82, 58, 90, 70],
-    },
-  },
-  {
-    slug: "taskforge",
-    title: "TaskForge",
-    tagline: "Kanban & team task manager",
-    description:
-      "Drag-and-drop task boards with granular permissions, activity logs and email digests. Designed for small teams that live in their issue tracker.",
-    year: "2024",
-    stack: ["React", "Express", "MongoDB", "JWT", "Tailwind"],
-    highlights: [
-      "Optimistic drag-and-drop with server reconciliation",
-      "Nodemailer digests on a cron schedule",
-      "Fine-grained RBAC with policy middleware",
-    ],
-    github: "https://github.com",
-    live: "https://example.com",
-    accent: "from-amber-400/20 via-orange-400/10 to-transparent",
-    glow: "rgba(251,191,36,0.18)",
-    mock: {
-      label: "taskforge.app / board",
-      metric: "1.2k",
-      metricLabel: "Tasks completed",
-      bars: [44, 70, 52, 88, 62, 76, 94, 68],
     },
   },
 ];
@@ -281,46 +233,19 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Full Stack Developer",
-    company: "Northwind Labs",
-    period: "2024 — Present",
-    type: "Remote",
+    role: "MERN Stack Developer Intern",
+    company: "EyeT Global Pvt Ltd · Asansol, India",
+    period: "02/2025 – 08/2025",
+    type: "Internship",
     summary:
-      "Own end-to-end delivery of client products across the MERN stack, from discovery to post-launch iteration.",
+      "Contributed to the development of full-stack web applications using MongoDB, Express.js, React and Node.js — building UI components, integrating REST APIs, supporting database operations and working with the team to test and improve features.",
     points: [
-      "Shipped 9 client applications with a 100% on-time launch record",
-      "Reduced average API response time by 46% through query and index tuning",
-      "Introduced a shared Next.js starter that cut project setup from days to hours",
+      "Developed responsive React components for application features",
+      "Integrated frontend screens with backend APIs and MongoDB data",
+      "Helped troubleshoot bugs and improve application reliability",
+      "Collaborated through code reviews, Git and regular project updates",
     ],
-    stack: ["Next.js", "Node.js", "MongoDB", "AWS"],
-  },
-  {
-    role: "MERN Stack Developer",
-    company: "PixelForge Studio",
-    period: "2022 — 2024",
-    type: "Full-time",
-    summary:
-      "Built and maintained multi-tenant SaaS dashboards for logistics and fintech clients.",
-    points: [
-      "Designed a multi-tenant MongoDB architecture serving 40k+ daily requests",
-      "Built a real-time notification service with Socket.IO and Redis",
-      "Raised Lighthouse performance scores from 62 to 96 on core screens",
-    ],
-    stack: ["React", "Express", "MongoDB", "Redis", "Docker"],
-  },
-  {
-    role: "Frontend Developer Intern",
-    company: "CodeCrafters",
-    period: "2021 — 2022",
-    type: "Hybrid",
-    summary:
-      "Turned Figma handoffs into responsive, accessible React interfaces for early-stage startups.",
-    points: [
-      "Implemented a component library used across four products",
-      "Improved accessibility compliance to WCAG 2.1 AA on key flows",
-      "Wrote integration tests that caught 30+ regressions before release",
-    ],
-    stack: ["React", "TypeScript", "Tailwind", "Jest"],
+    stack: ["React", "Node.js", "Express.js", "MongoDB", "Git"],
   },
 ];
 

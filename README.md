@@ -60,7 +60,7 @@ All copy, links and projects live in [`src/data/portfolio.ts`](src/data/portfoli
 - `profile` — name, role, location, email, phone, availability, socials, stats
 - `profile.photo` — portrait shown in the About section (see below)
 - `about` — intro, paragraphs, current focus
-- `skillGroups` — four categories of tools
+- `skillGroups` — React, Node.js & Express, MongoDB
 - `projects` — title, description, stack, highlights, demo/GitHub links
 - `experience` — roles, impact bullets, period
 - Set `profile.resumeUrl` to a PDF in `public/` (e.g. `/resume.pdf`) to show a résumé button
@@ -71,8 +71,14 @@ use another filename, update `profile.photo` and `profile.photoAlt`. Until the
 file exists the card shows your initials as a monogram, and `npm run dev` shows
 a small reminder.
 
-Also update the placeholder links (`github.com`, `example.com`) and replace the
-placeholder contact details before deploying.
+Also replace the placeholder GitHub profile link and the placeholder contact
+details before deploying.
+
+**Project screenshots:** each project card has an optional image slot. Put a
+screenshot anywhere in `public/` (e.g. `public/projects/drivea.png`, roughly
+16:10, 1200–1600px wide), then uncomment the `image` and `imageAlt` lines for
+that project in `src/data/portfolio.ts`. Without an image the card shows the
+abstract preview, and a missing file falls back to it automatically.
 
 ## Scripts
 

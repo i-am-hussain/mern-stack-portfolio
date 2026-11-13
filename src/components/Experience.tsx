@@ -25,7 +25,7 @@ export default function Experience() {
                     <span className="text-slate-500">done the work.</span>
                   </>
                 }
-                description="From intern to shipping production systems — a track record of owning features end to end."
+                description="Hands-on MERN product work — React components, API integration and database operations, reviewed and shipped with a team."
               />
             </Reveal>
 
