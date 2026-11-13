@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MERN Stack Developer Portfolio
 
-## Getting Started
+A fast, responsive portfolio for a MERN stack developer, built with **Next.js (App Router)**, **Three.js / React Three Fiber**, **MongoDB (Mongoose)** and **Resend** for contact-form email delivery.
 
-First, run the development server:
+## Highlights
+
+- Interactive Three.js hero: distorted metallic core, orbit rings, satellites, particles and pointer parallax
+- Dark, editorial design system with glass surfaces, gradient type and scroll-reveal motion
+- Responsive from 320px phones up to wide desktops, with a full mobile navigation
+- Contact form with client + server validation, honeypot, rate limiting and clear success/error states
+- Every submission is stored in MongoDB **and** emailed to your Gmail inbox
+- Content is centralized in one file — no component edits needed to personalize
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # then fill in the values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. MongoDB
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Either run MongoDB locally (`mongodb://127.0.0.1:27017/portfolio`) or create a free
+MongoDB Atlas cluster and paste its connection string into `MONGODB_URI`.
+Messages are stored in the `contactmessages` collection.
 
-## Learn More
+### 2. Email to your Gmail (Resend)
 
-To learn more about Next.js, take a look at the following resources:
+1. Create a free account at [resend.com](https://resend.com) and add an API key.
+2. Put the key in `RESEND_API_KEY`.
+3. Set `CONTACT_EMAIL` to your Gmail address.
+4. Leave `RESEND_FROM_EMAIL` as `onboarding@resend.dev` while testing — the
+   testing sender can only deliver to the **Resend account owner's** address,
+   which is exactly what this form needs.
+5. For production (sending from your own domain, or to any recipient), verify a
+   domain in Resend and update `RESEND_FROM_EMAIL`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each accepted message triggers an email with the visitor's name, address,
+subject and message, plus a one-click **Reply** button (`replyTo` is set to the
+visitor). If email delivery fails, the submission is still saved in MongoDB and
+the visitor sees a clear error.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```ts
+// The API contract
+POST /api/contact
+{ "name": "...", "email": "...", "subject": "...", "message": "..." }
+```
 
-## Deploy on Vercel
+Protections included: field length limits, email format validation, hidden
+honeypot field, in-memory rate limit (5 submissions / 10 min / IP) and escaped
+HTML in the notification email.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Make it yours
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All copy, links and projects live in [`src/data/portfolio.ts`](src/data/portfolio.ts):
+
+- `profile` — name, role, location, email, phone, availability, socials, stats
+- `about` — intro, paragraphs, current focus
+- `skillGroups` — four categories of tools
+- `projects` — title, description, stack, highlights, demo/GitHub links
+- `experience` — roles, impact bullets, period
+- Set `profile.resumeUrl` to a PDF in `public/` (e.g. `/resume.pdf`) to show a résumé button
+
+Also update the placeholder links (`github.com`, `example.com`) and replace the
+placeholder contact details before deploying.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Run ESLint |
+
+## Deployment
+
+The app deploys cleanly to Vercel. Add the four environment variables
+(`MONGODB_URI`, `MONGODB_DB` optional, `RESEND_API_KEY`, `CONTACT_EMAIL`,
+`RESEND_FROM_EMAIL`) in the project settings, and allow Vercel's IPs in MongoDB
+Atlas (or use `0.0.0.0/0` during setup).
+
+## Notes
+
+- The hero renders with `prefers-reduced-motion` respected — animations stop for
+  users who ask for it.
+- Three.js is lazy-loaded on the client so it never blocks first paint.
