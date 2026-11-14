@@ -8,7 +8,33 @@ import {
   Sparkles,
   Stars,
 } from "@react-three/drei";
+import { getConsoleFunction, setConsoleFunction } from "three";
 import * as THREE from "three";
+
+/**
+ * @react-three/fiber v9 still creates a THREE.Clock internally, which three.js
+ * r183+ flags as deprecated. The migration to THREE.Timer only exists in the
+ * unreleased fiber v10, so filter that single upstream notice and forward every
+ * other three.js message untouched. Remove once fiber v10 is stable.
+ * Upstream: https://github.com/pmndrs/react-three-fiber/issues/3741
+ */
+const forwardThreeConsole = getConsoleFunction();
+setConsoleFunction((type, message, ...params) => {
+  if (
+    type === "warn" &&
+    message.startsWith(
+      "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    )
+  ) {
+    return;
+  }
+
+  if (forwardThreeConsole) {
+    forwardThreeConsole(type, message, ...params);
+  } else {
+    console[type](message, ...params);
+  }
+});
 
 const SATELLITES = [
   { angle: 0.3, radius: 2.15, y: 0.55, color: "#5eead4", size: 0.1 },

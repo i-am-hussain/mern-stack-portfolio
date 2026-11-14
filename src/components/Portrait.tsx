@@ -32,7 +32,7 @@ export default function Portrait() {
             {false ? null : null}
           </div>
 
-          {failed ? null : (
+          {failed || !profile.photo ? null : (
             <Image
               src={profile.photo}
               alt={profile.photoAlt}

@@ -15,11 +15,30 @@ export type Social = {
 // TODO: replace with your real email address.
 const EMAIL = "sahnawashussain98@gmail.com";
 
-export const profile = {
+export type Profile = {
+  name: string;
+  firstName: string;
+  role: string;
+  /** Portrait in `public/`; leave unset to show the initials monogram. */
+  photo?: string;
+  photoAlt: string;
+  location: string;
+  timezone: string;
+  email: string;
+  phone: string;
+  availability: string;
+  headline: string;
+  subheadline: string;
+  resumeUrl: string;
+  socials: Social[];
+  stats: { value: string; label: string }[];
+};
+
+export const profile: Profile = {
   name: "Sahnawas Hussain",
   firstName: "Sahnawas",
   role: "MERN Stack Developer",
-  // Drop your portrait at public/profile.jpg, or change this path.
+  // Drop your portrait at public/profile.jpg, then set this to its path.
   // photo: "/profile.jpeg",
   photoAlt: "Portrait of Sahnawas Hussain",
   location: "Bhopal, India",
