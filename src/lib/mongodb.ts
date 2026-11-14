@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
+// MONGODB_DB is optional: ignore blank/whitespace values and use the same
+// database name as the documented local connection string.
+const MONGODB_DB = process.env.MONGODB_DB?.trim() || "portfolio";
 
 type MongooseCache = {
   connection: typeof mongoose | null;
@@ -31,7 +34,7 @@ export async function connectToDatabase() {
 
   if (!cache.promise) {
     cache.promise = mongoose.connect(MONGODB_URI, {
-      dbName: process.env.MONGODB_DB || undefined,
+      dbName: MONGODB_DB,
       bufferCommands: false,
       serverSelectionTimeoutMS: 8000,
     });
