@@ -58,7 +58,7 @@ export const profile: Profile = {
   ] satisfies Social[],
   stats: [
     { value: "6", label: "Months on a product team" },
-    { value: "3", label: "Full-stack apps live" },
+    { value: "4", label: "Full-stack apps live" },
     { value: "MERN", label: "Stack, end to end" },
   ],
 };
@@ -220,6 +220,36 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "pathforge",
+    title: "PathForge",
+    tagline: "AI roadmap & skill-gap generator",
+    description:
+      "PathForge turns a learning goal into a sequenced, build-first roadmap — or takes your existing skills and shows exactly what carries into a new field, what gaps block you, and how to close them. Every plan is structured JSON, validated end to end, saved to your account, and exportable as a PDF or Markdown file. Built on Next.js 16 and React 19 with Clerk for auth and MongoDB for persistence, behind a provider-agnostic LLM layer that runs on Z.ai GLM Flash, Groq, Cerebras, Google Gemini, any OpenAI-compatible endpoint, or a local Ollama model.",
+    year: "2026",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "Clerk",
+      "MongoDB",
+      "LLM layer",
+      "TypeScript",
+    ],
+    highlights: [
+      "Turns a learning goal into a sequenced, build-first roadmap",
+      "Skill-gap analysis: what carries over, what blocks you, how to close it",
+      "Plans generated as structured JSON and validated end to end",
+      "Saved to your account and exportable as PDF or Markdown",
+      "Provider-agnostic LLM layer — swap between hosted APIs or local Ollama",
+    ],
+    live: "https://ai-roadmap-generator-rho.vercel.app/",
+    accent: "from-amber-400/20 via-rose-400/10 to-transparent",
+    glow: "rgba(251,191,36,0.2)",
+    mock: {
+      label: "pathforge / roadmap",
+      bars: [24, 42, 58, 50, 76, 68, 92, 80],
+    },
+  },
+  {
     slug: "jobnest",
     title: "JobNest",
     tagline: "Full-stack job board",
@@ -229,7 +259,7 @@ export const projects: Project[] = [
     stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Vercel"],
     highlights: [],
     live: "https://job-portal-app-blond.vercel.app/",
-    image: "/projects/job-portal-app.png",
+    image: "/projects/PathForge.png",
     imageAlt: "JobNest job board listing page",
     accent: "from-violet-400/20 via-fuchsia-400/10 to-transparent",
     glow: "rgba(167,139,250,0.2)",
