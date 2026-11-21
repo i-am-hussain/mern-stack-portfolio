@@ -243,6 +243,8 @@ export const projects: Project[] = [
     ],
     live: "https://ai-roadmap-generator-rho.vercel.app/",
     accent: "from-amber-400/20 via-rose-400/10 to-transparent",
+    image: "/projects/PathForge.png",
+    imageAlt: "PathForge",
     glow: "rgba(251,191,36,0.2)",
     mock: {
       label: "pathforge / roadmap",
@@ -259,7 +261,7 @@ export const projects: Project[] = [
     stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "Vercel"],
     highlights: [],
     live: "https://job-portal-app-blond.vercel.app/",
-    image: "/projects/PathForge.png",
+    image: "/projects/job-portal-app.png",
     imageAlt: "JobNest job board listing page",
     accent: "from-violet-400/20 via-fuchsia-400/10 to-transparent",
     glow: "rgba(167,139,250,0.2)",
